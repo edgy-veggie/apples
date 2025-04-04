@@ -9,13 +9,16 @@
         const canvas = document.getElementById('favicon');
         const ctx = canvas.getContext('2d');
         
-        // Draw red circle
+        // Set background to transparent
+        ctx.clearRect(0, 0, 32, 32);
+        
+        // Draw the red circle
         ctx.beginPath();
-        ctx.arc(16, 16, 12, 0, Math.PI * 2);
+        ctx.arc(16, 16, 12, 0, 2 * Math.PI);
         ctx.fillStyle = '#8B0000';
         ctx.fill();
         
-        // Convert to PNG
+        // Create download link
         const link = document.createElement('a');
         link.download = 'favicon.png';
         link.href = canvas.toDataURL('image/png');
