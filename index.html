@@ -71,6 +71,51 @@
             </div>
         </div>
     </div>
+    <section class="counter-section">
+        <div class="container">
+            <div class="counter-content">
+                <h2>Petitie teller: <span id="signatureCount" class="counter-number">...</span> <span class="emoji">✍️</span></h2>
+            </div>
+        </div>
+    </section>
     <script src="script.js"></script>
+    <script>
+        // Google Sheets API configuration
+        const SPREADSHEET_ID = '1WhwPolp3joHVrk7Pg3Bgqq3ghwJ1RKyXvS7O8_OivEg';
+        const API_KEY = 'AIzaSyBtUbfQ5NIBf1P6QVbQ-KiEN9QPztBeYZ4';
+        const RANGE = 'Formulierreacties 1!A:A'; // Column A contains timestamps
+
+        // Function to fetch and update the signature count
+        async function updateSignatureCount() {
+            try {
+                const response = await fetch(`https://sheets.googleapis.com/v4/spreadsheets/${SPREADSHEET_ID}/values/${RANGE}?key=${API_KEY}`);
+                const data = await response.json();
+                if (data.values) {
+                    // Subtract 1 for the header row
+                    const count = data.values.length - 1;
+                    const countElement = document.getElementById('signatureCount');
+                    const currentCount = parseInt(countElement.textContent.replace(/\./g, '')) || 0;
+                    
+                    if (count !== currentCount) {
+                        countElement.classList.add('counter-update');
+                        setTimeout(() => {
+                            countElement.textContent = count.toLocaleString('nl-NL');
+                            countElement.classList.remove('counter-update');
+                        }, 500);
+                    }
+                }
+            } catch (error) {
+                console.error('Error fetching signature count:', error);
+                document.getElementById('signatureCount').textContent = 'veel';
+            }
+        }
+
+        // Update count on page load and every 30 seconds
+        updateSignatureCount();
+        setInterval(updateSignatureCount, 30000);
+    </script>
+    <footer class="footer">
+        <p>Contact: <a href="mailto:petitietegenverkrachting@gmail.com">petitietegenverkrachting@gmail.com</a></p>
+    </footer>
 </body>
 </html>
