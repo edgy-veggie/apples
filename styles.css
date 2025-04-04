@@ -36,6 +36,7 @@ body {
     --text-light: #ffffff;
     --text-dark: #333333;
     --background-light: #f5f5f5;
+    --background-medium: #e5e5e5;
 }
 
 .hero {
@@ -617,7 +618,7 @@ body {
 
 .options {
     padding: 4rem 0;
-    background-color: var(--background-light);
+    background-color: var(--background-medium);
 }
 
 .options-grid {
