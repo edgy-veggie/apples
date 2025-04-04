@@ -772,3 +772,99 @@ body {
 .petitie-content .container h2:first-of-type {
     margin-top: 1.5rem;
 }
+
+.footer {
+    background-color: var(--background-medium);
+    padding: 2rem 0;
+    text-align: center;
+    margin-top: 2rem;
+    border-top: 1px solid #ddd;
+}
+
+.footer p {
+    color: var(--text-dark);
+    font-size: 0.9rem;
+}
+
+.footer a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+.counter-section {
+    background-color: white;
+    color: var(--text-dark);
+    padding: 2rem 0;
+    text-align: center;
+    border-top: 1px solid var(--background-medium);
+    border-bottom: 1px solid var(--background-medium);
+}
+
+.counter-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.counter-content h2 {
+    font-size: 2rem;
+    margin: 0;
+    font-weight: normal;
+}
+
+.counter-number {
+    color: var(--primary-color);
+    font-weight: bold;
+    display: inline-block;
+    min-width: 100px;
+    text-align: center;
+}
+
+.emoji {
+    display: inline-block;
+    margin-left: 0.5rem;
+    font-size: 1.2em;
+    vertical-align: middle;
+    animation: emojiFloat 2s ease-in-out infinite;
+}
+
+@keyframes emojiFloat {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.counter-update {
+    animation: counterPulse 0.5s ease-in-out;
+}
+
+@keyframes counterPulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@media (max-width: 768px) {
+    .counter-content h2 {
+        font-size: 1.5rem;
+    }
+}
