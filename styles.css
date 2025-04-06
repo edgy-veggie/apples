@@ -188,6 +188,34 @@ body {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+.demand-item.fulfilled {
+    background-color: #e8f5e9;
+    border-left: 4px solid #4caf50;
+}
+
+.fulfillment-note {
+    margin-top: 1rem;
+    padding: 1rem;
+    background-color: #f1f8e9;
+    border-radius: 4px;
+}
+
+.fulfillment-note p {
+    margin: 0;
+    color: #2e7d32;
+    font-size: 0.95rem;
+}
+
+.fulfillment-note a {
+    color: #2e7d32;
+    text-decoration: underline;
+    font-weight: 500;
+}
+
+.fulfillment-note a:hover {
+    color: #1b5e20;
+}
+
 .manifesto-for {
     max-width: 800px;
     margin: 1.5rem auto;
